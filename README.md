@@ -14,6 +14,10 @@ EuWiFy is a small Android app that switches an Eufy security camera between **Ho
 
 It was built because Eufy's own geofencing was unreliable, and smart-speaker routines were not an option.
 
+## Download
+
+**[⬇️ Download the latest APK](https://github.com/n0br4n/euwify/releases/latest)**: open it on your phone and allow "install unknown apps" when Android asks. Installation steps are in the release notes.
+
 > ⚠️ **Not affiliated with Anker or Eufy.** EuWiFy uses an unofficial, community-made interface ([eufy-security-client](https://github.com/bropat/eufy-security-client)). That project is no longer maintained, and Eufy can change or switch off the interface at any time. Use at your own risk.
 
 ## Tested with
