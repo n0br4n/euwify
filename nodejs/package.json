@@ -1,0 +1,11 @@
+{
+  "name": "euwify-node",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Node.js part of the EuWiFy Android app (runs inside the app via nodejs-mobile).",
+  "main": "main.js",
+  "license": "MIT",
+  "dependencies": {
+    "eufy-security-ws": "3.1.0"
+  }
+}

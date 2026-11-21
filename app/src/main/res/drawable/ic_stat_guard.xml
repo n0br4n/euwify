@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Status bar icon: Wi-Fi waves over a shield with a house (white only) -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp" android:height="24dp"
+    android:viewportWidth="24" android:viewportHeight="24">
+    <path android:strokeColor="#FFFFFFFF" android:strokeWidth="1.7" android:strokeLineCap="round"
+        android:pathData="M4.6,6.9 Q12,0.6 19.4,6.9" />
+    <path android:strokeColor="#FFFFFFFF" android:strokeWidth="1.7" android:strokeLineCap="round"
+        android:pathData="M7.9,9.1 Q12,5.6 16.1,9.1" />
+    <path android:fillColor="#FFFFFFFF" android:fillType="evenOdd"
+        android:pathData="M12,9.6 L5.6,12 V15.2 C5.6,18.9 8.3,22 12,23 C15.7,22 18.4,18.9 18.4,15.2 V12 Z M12,13.3 L8.4,16.4 H9.6 V20 H11.1 V17.8 H12.9 V20 H14.4 V16.4 H15.6 Z" />
+</vector>

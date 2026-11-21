@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Teal fallback palette (Material 3). On Android 12+ the phone's own
+     wallpaper colors replace these (dynamic color). -->
+<resources>
+    <color name="m3_primary">#006A60</color>
+    <color name="m3_onPrimary">#FFFFFF</color>
+    <color name="m3_primaryContainer">#74F8E5</color>
+    <color name="m3_onPrimaryContainer">#00201C</color>
+    <color name="m3_secondary">#4A635F</color>
+    <color name="m3_onSecondary">#FFFFFF</color>
+    <color name="m3_secondaryContainer">#CCE8E2</color>
+    <color name="m3_onSecondaryContainer">#05201C</color>
+    <color name="m3_tertiary">#456179</color>
+    <color name="m3_onTertiary">#FFFFFF</color>
+    <color name="m3_tertiaryContainer">#CCE5FF</color>
+    <color name="m3_onTertiaryContainer">#001E31</color>
+    <color name="m3_error">#BA1A1A</color>
+    <color name="m3_errorContainer">#FFDAD6</color>
+    <color name="m3_onErrorContainer">#410002</color>
+    <color name="m3_background">#F4FBF8</color>
+    <color name="m3_onBackground">#161D1C</color>
+    <color name="m3_surface">#F4FBF8</color>
+    <color name="m3_onSurface">#161D1C</color>
+    <color name="m3_surfaceVariant">#DAE5E1</color>
+    <color name="m3_onSurfaceVariant">#3F4947</color>
+    <color name="m3_outline">#6F7977</color>
+    <color name="m3_surfaceContainer">#E9EFEC</color>
+    <color name="m3_surfaceContainerHigh">#E3EAE7</color>
+    <color name="m3_surfaceContainerHighest">#DDE4E1</color>
+</resources>

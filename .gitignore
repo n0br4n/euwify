@@ -1,0 +1,37 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# --- EuWiFy ---
+# Private handoff notes (contain personal details)
+CLAUDE.md
+# nodejs-mobile library: downloaded by scripts/get-libnode.ps1 (too big for git)
+/app/libnode/
+# npm install output (packed into app/src/main/assets/nodejs-project/node_modules.zip)
+/nodejs/node_modules/
+# Signing keys and their passwords: NEVER commit
+*.jks
+*.keystore
+keystore.properties
+# Release outputs
+/app/release/
+*.apk
+*.aab
+
+# Personal Android Studio settings (include the phone's ID)
+/.idea/
+
+# Original Gemini banner (contains claims that don't match the app; design/feature-graphic.png replaces it)
+/design/banner.png

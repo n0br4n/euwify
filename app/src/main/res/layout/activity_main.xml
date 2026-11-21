@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground"
+    android:clipToPadding="false"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="24dp">
+
+        <!-- ===== Header ===== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:importantForAccessibility="no"
+                android:scaleType="centerCrop"
+                android:src="@drawable/logo_badge"
+                app:shapeAppearanceOverlay="@style/LogoShape" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:textAppearance="?attr/textAppearanceHeadlineMedium"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/Hint"
+                    android:text="Home and Away for your camera, by Wi-Fi"
+                    android:textAppearance="?attr/textAppearanceBodyMedium" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ===== Status (hero) ===== -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/heroCard"
+            style="@style/SectionCard"
+            android:layout_marginTop="20dp"
+            app:cardCornerRadius="28dp">
+
+            <LinearLayout
+                style="@style/SectionBody"
+                android:padding="24dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/heroIcon"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_shield" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/heroCamera"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Camera"
+                            android:textAppearance="?attr/textAppearanceLabelLarge" />
+
+                        <TextView
+                            android:id="@+id/heroMode"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="…"
+                            android:textAppearance="?attr/textAppearanceDisplaySmall"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/summaryText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Starting…"
+                    android:textAppearance="?attr/textAppearanceBodyLarge" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/wifiChip"
+                        style="@style/Widget.Material3.Chip.Assist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:text="Wi-Fi"
+                        app:chipIcon="@drawable/ic_wifi" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/eufyChip"
+                        style="@style/Widget.Material3.Chip.Assist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:text="Eufy"
+                        app:chipIcon="@drawable/ic_cloud" />
+                </com.google.android.material.chip.ChipGroup>
+
+                <TextView
+                    android:id="@+id/lastEventText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textAppearance="?attr/textAppearanceBodySmall"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ===== Setup checklist (hidden when everything is done) ===== -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/setupCard"
+            style="@style/SectionCard">
+
+            <LinearLayout style="@style/SectionBody">
+
+                <TextView
+                    style="@style/SectionTitle"
+                    android:drawableStart="@drawable/ic_warning"
+                    android:text="Finish setup" />
+
+                <LinearLayout
+                    android:id="@+id/checklist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/setupButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ===== Sign in ===== -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/loginCard"
+            style="@style/SectionCard">
+
+            <LinearLayout style="@style/SectionBody">
+
+                <TextView
+                    style="@style/SectionTitle"
+                    android:drawableStart="@drawable/ic_person"
+                    android:text="Sign in to Eufy" />
+
+                <TextView
+                    style="@style/Hint"
+                    android:text="Use your main Eufy account (a guest account can't see the camera). Your login is stored encrypted on this phone only." />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/emailLayout"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="Email">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="emailAddress"
+                        android:inputType="textEmailAddress" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="Password"
+                    app:endIconMode="password_toggle">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="password"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="Country"
+                    app:helperText="2 letters, e.g. NO">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/country"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:importantForAutofill="no"
+                        android:inputType="textCapCharacters"
+                        android:maxLength="2"
+                        android:text="NO" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/loginButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Sign in" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ===== Verification code / captcha (only when Eufy asks) ===== -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/verifyCard"
+            style="@style/SectionCard"
+            android:visibility="gone">
+
+            <LinearLayout style="@style/SectionBody">
+
+                <TextView
+                    style="@style/SectionTitle"
+                    android:drawableStart="@drawable/ic_shield"
+                    android:text="Verification" />
+
+                <LinearLayout
+                    android:id="@+id/tfaBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/Hint"
+                        android:text="Eufy sent a code to your email." />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:hint="Code from email">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tfaCode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="smsOTPCode"
+                            android:inputType="number"
+                            android:maxLength="8" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/tfaButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Send code" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/captchaBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/Hint"
+                        android:text="Type the letters you see in the picture." />
+
+                    <ImageView
+                        android:id="@+id/captchaImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="8dp"
+                        android:contentDescription="Captcha picture"
+                        android:scaleType="fitCenter" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:hint="Letters">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/captchaCode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:importantForAutofill="no"
+                            android:inputType="text" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/captchaButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Send" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ===== Switching ===== -->
+        <com.google.android.material.card.MaterialCardView style="@style/SectionCard">
+
+            <LinearLayout style="@style/SectionBody">
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/autoSwitch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Switch automatically"
+                    android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                <TextView
+                    style="@style/Hint"
+                    android:text="On home Wi-Fi → Home at once. No home Wi-Fi for 75 seconds → Away." />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/homeButton"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="0dp"
+                        android:layout_height="64dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:text="Home"
+                        app:icon="@drawable/ic_home" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/awayButton"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="0dp"
+                        android:layout_height="64dp"
+                        android:layout_weight="1"
+                        android:text="Away"
+                        app:icon="@drawable/ic_away" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/modeResult"
+                    style="@style/Hint"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ===== Camera ===== -->
+        <com.google.android.material.card.MaterialCardView style="@style/SectionCard">
+
+            <LinearLayout style="@style/SectionBody">
+
+                <TextView
+                    style="@style/SectionTitle"
+                    android:drawableStart="@drawable/ic_videocam"
+                    android:text="Camera" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/cameraText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAppearance="?attr/textAppearanceBodyLarge" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/chooseCameraButton"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Choose" />
+                </LinearLayout>
+
+                <RadioGroup
+                    android:id="@+id/cameraGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ===== Home Wi-Fi ===== -->
+        <com.google.android.material.card.MaterialCardView style="@style/SectionCard">
+
+            <LinearLayout style="@style/SectionBody">
+
+                <TextView
+                    style="@style/SectionTitle"
+                    android:drawableStart="@drawable/ic_wifi"
+                    android:text="Home Wi-Fi" />
+
+                <TextView
+                    android:id="@+id/currentWifiText"
+                    style="@style/Hint" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/homeChips"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp" />
+
+                <TextView
+                    android:id="@+id/noHomeText"
+                    style="@style/Hint"
+                    android:layout_marginTop="4dp"
+                    android:text="No home Wi-Fi added yet." />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/addCurrentWifiButton"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Add the Wi-Fi I'm on now"
+                    app:icon="@drawable/ic_add" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ssidLayout"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="Or type a Wi-Fi name"
+                    app:endIconContentDescription="Add"
+                    app:endIconDrawable="@drawable/ic_add"
+                    app:endIconMode="custom">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/ssidInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionDone"
+                        android:importantForAutofill="no"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ===== Recent activity ===== -->
+        <com.google.android.material.card.MaterialCardView style="@style/SectionCard">
+
+            <LinearLayout style="@style/SectionBody">
+
+                <TextView
+                    style="@style/SectionTitle"
+                    android:drawableStart="@drawable/ic_schedule"
+                    android:text="Recent activity" />
+
+                <TextView
+                    style="@style/Hint"
+                    android:text="Newest first. Lines with · come from the Eufy connection." />
+
+                <TextView
+                    android:id="@+id/activityText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="monospace"
+                    android:maxLines="12"
+                    android:textIsSelectable="true"
+                    android:textSize="11sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/clearActivityButton"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Clear" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/moreActivityButton"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Show more" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ===== Support (optional tip; unlocks nothing) ===== -->
+        <com.google.android.material.card.MaterialCardView style="@style/SectionCard">
+
+            <LinearLayout style="@style/SectionBody">
+
+                <TextView
+                    style="@style/SectionTitle"
+                    android:drawableStart="@drawable/ic_coffee"
+                    android:text="Buy me a coffee" />
+
+                <TextView
+                    style="@style/Hint"
+                    android:text="EuWiFy is free, has no ads and nothing is locked. If it helps you, a small tip keeps it going. Opens in your browser." />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/revolutButton"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:text="Revolut" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/paypalButton"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="PayPal" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ===== Account ===== -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/logoutButton"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Sign out and delete login from this phone"
+            android:textColor="?attr/colorError" />
+
+        <TextView
+            style="@style/Hint"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Works with Eufy cameras through an unofficial interface. Not made by or affiliated with Anker or Eufy." />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
